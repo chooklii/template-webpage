@@ -1,4 +1,6 @@
-This is a template Project for all Webpages
+This is a template Project for all Webpages.
+
+Content is compiled by webpack and is perfectly adjusted to use this a a template for a Website hosted by Github Pages. 
 
 First time:
 
