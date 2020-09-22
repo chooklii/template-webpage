@@ -1,8 +1,13 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const path = require("path");
 
 module.exports = {
+    devServer: {
+      contentBase: path.join(__dirname, 'docs'),
+      compress: true,
+      port: 9000
+    },
     module: {
       rules: [
         {
@@ -25,22 +30,19 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
           template: "./static/index.html",
-          filename: "../public/index.html",
+          filename: "../docs/index.html",
         }),
         new HtmlWebPackPlugin({
           template: "./static/index.html",
-          filename: "../public/private/index.html"
+          filename: "../docs/404.html"
         }),
-        new HtmlWebPackPlugin({
-          template: "./static/index.html",
-          filename: "../public/projekte/index.html"
-        }),
-
         new MiniCssExtractPlugin({
-          filename: "../public/style.css"
+          filename: "style.css",
+          path: path.resolve(__dirname, "docs")
         })
       ],
     output: {
-      filename: "../public/bundle.js"
+      filename: "bundle.js",
+      path: path.resolve(__dirname, "docs")
     }
   };

@@ -17,10 +17,10 @@ class App extends React.Component {
                     </div>
                         </Route>
 
-                        <Route exact path="/private">
+                        <Route path="/*">
                             <div>
-                                About me in Arbeit :)
-                    </div>
+                                404
+                            </div>
                         </Route>
                     </Switch>
                 </div>
