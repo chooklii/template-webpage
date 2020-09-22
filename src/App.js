@@ -17,7 +17,7 @@ class App extends React.Component {
                     </div>
                         </Route>
 
-                        <Route path="/*">
+                        <Route path="*">
                             <div>
                                 404
                             </div>
