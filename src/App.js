@@ -13,7 +13,7 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/">
                             <div>
-                                Seite in Arbeit
+                                Home
                     </div>
                         </Route>
 

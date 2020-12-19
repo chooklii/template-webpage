@@ -2,6 +2,16 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require("path");
 
+// add paths for subdomains here
+const paths = []
+
+let multipleHtmlPlugins = paths.map(name => {
+  return new HtmlWebPackPlugin({
+    template: "./static/index.html",
+    filename: `../docs/${name}/index.html`,
+  })
+});
+
 module.exports = {
     devServer: {
       contentBase: path.join(__dirname, 'docs'),
@@ -36,11 +46,11 @@ module.exports = {
           template: "./static/index.html",
           filename: "../docs/404.html"
         }),
-        new MiniCssExtractPlugin({
+      new MiniCssExtractPlugin({
           filename: "style.css",
           path: path.resolve(__dirname, "docs")
         })
-      ],
+      ].concat(multipleHtmlPlugins),
     output: {
       filename: "bundle.js",
       path: path.resolve(__dirname, "docs")
